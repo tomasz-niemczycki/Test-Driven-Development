@@ -51,4 +51,15 @@ describe("Test mnożenia", () => {
     expect(calc(Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER)).toBe(null);
     expect(calc(Number.MIN_SAFE_INTEGER, Number.MIN_SAFE_INTEGER)).toBe(null);
   });
+
+  // it("Wartości Null i Undefined", () => {
+  //   expect(calc(null, 1)).toBe(null);
+  //   expect(calc(undefined, 1)).toBe(null);
+  //   expect(calc(1, null)).toBe(null);
+  //   expect(calc(1, undefined)).toBe(null);
+  //   expect(calc(null, null)).toBe(null);
+  //   expect(calc(null, undefined)).toBe(null);
+  //   expect(calc(undefined, null)).toBe(null);
+  //   expect(calc(undefined, undefined)).toBe(null);
+  // });
 });
