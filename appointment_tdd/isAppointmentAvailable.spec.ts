@@ -5,6 +5,7 @@ const time = (h: number, m = 0) => new Date(2026, 10, 3, h, m);
 
 const start = time(8);
 const end = time(16);
+const existing = [{ start: time(10), end: time(11) }];
 
 describe("Testy sprawdzania dostępności", () => {
   it("Umówienie wizyty w godzinach pracy", () => {
@@ -35,17 +36,13 @@ describe("Testy sprawdzania dostępności", () => {
   });
 
   it("Wizyta jest w trakcie lub zaczyna się w tym samym momencie co inna wizyta", () => {
-    expect(
-      isAppointmentAvailable(time(15), 30, start, end, [
-        { start: time(15), end: time(16) },
-      ]),
-    ).toBe(false);
+    expect(isAppointmentAvailable(time(10, 20), 30, start, end, existing)).toBe(
+      false,
+    );
   });
-  expect(
-    isAppointmentAvailable(time(15, 20), 30, start, end, [
-      { start: time(15), end: time(16) },
-    ]),
-  ).toBe(false);
+  expect(isAppointmentAvailable(time(10), 60, start, end, existing)).toBe(
+    false,
+  );
 
   it("Null lub Undefined w datach", () => {
     expect(isAppointmentAvailable(null, 60, start, end, [])).toBe(false);
